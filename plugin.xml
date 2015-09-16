@@ -22,7 +22,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 id="ns-cordova-plugin-audio"
     version="0.0.1">
 
-    <name>Audions</name>
+    <name>NSmedia</name>
     <description>NocSonic Two Track Audio plugin</description>
     <license>Apache 2.0</license>
     <keywords>nocsonic,audio</keywords>
@@ -30,8 +30,8 @@ id="ns-cordova-plugin-audio"
 
     <dependency id="cordova-plugin-file" version=">=2.0.0" />
 
-    <js-module src="www/MediaError.js" name="MediaError">
-        <clobbers target="window.MediaError" />
+    <js-module src="www/NSmediaError.js" name="NSmediaError">
+        <clobbers target="window.NSmediaError" />
     </js-module>
 
     <js-module src="www/NSmedia.js" name="NSmedia">
@@ -42,7 +42,7 @@ id="ns-cordova-plugin-audio"
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="NSmedia" >
-                <param name="android-package" value="org.apache.cordova.media.AudioHandler"/>
+                <param name="android-package" value="org.nocsonic.nsmedia.AudioHandlerNS"/>
             </feature>
         </config-file>
 
@@ -53,9 +53,9 @@ id="ns-cordova-plugin-audio"
             <uses-permission android:name="android.permission.READ_PHONE_STATE" />
         </config-file>
 
-        <source-file src="src/android/AudioHandler.java" target-dir="src/org/apache/cordova/media" />
-        <source-file src="src/android/AudioPlayer.java" target-dir="src/org/apache/cordova/media" />
-        <source-file src="src/android/FileHelper.java" target-dir="src/org/apache/cordova/media" />
+        <source-file src="src/android/AudioHandlerNS.java" target-dir="src/org/nocsonic/cordova/nsmedia" />
+        <source-file src="src/android/AudioPlayerNS.java" target-dir="src/org/nocsonic/cordova/nsmedia" />
+        <source-file src="src/android/FileHelper.java" target-dir="src/org/apache/nocsonic/nsmedia" />
      </platform>
 
      <!-- ios -->
@@ -73,7 +73,7 @@ id="ns-cordova-plugin-audio"
     <platform name="wp7">
         <config-file target="config.xml" parent="/*">
             <feature name="NSmedia">
-                <param name="wp-package" value="NSmedia"/>
+                <param name="wp-package" value="MediaNS"/>
             </feature>
         </config-file>
 
@@ -90,7 +90,7 @@ id="ns-cordova-plugin-audio"
     <platform name="wp8">
         <config-file target="config.xml" parent="/*">
             <feature name="NSmedia">
-                <param name="wp-package" value="NSmedia"/>
+                <param name="wp-package" value="MediaNS"/>
             </feature>
         </config-file>
 
