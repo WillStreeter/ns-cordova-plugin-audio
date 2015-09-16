@@ -1,0 +1,28 @@
+{
+  "name": "ns-cordova-plugin-audio",
+  "version": "1.0.1",
+  "description": "Two Track Mixing, Recording and Encoding",
+  "cordova": {
+    "id": "ns-cordova-plugin-audio",
+    "platforms": [
+      "ios",
+      "android",
+      "wp7",
+      "wp8"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nocsonic/ns-cordova-plugin-audio"
+  },
+  "keywords": [
+    "cordova",
+    "two-track",
+    "ecosystem:cordova"
+  ],
+  "peerDependencies": {
+    "cordova-plugin-file": ">=2.0.0"
+  },
+  "author": "NocSonic",
+  "license": "Apache 2.0"
+}
