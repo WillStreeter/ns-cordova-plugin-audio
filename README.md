@@ -1,25 +1,7 @@
-<!--
-# license: Licensed to the Apache Software Foundation (ASF) under one
-#         or more contributor license agreements.  See the NOTICE file
-#         distributed with this work for additional information
-#         regarding copyright ownership.  The ASF licenses this file
-#         to you under the Apache License, Version 2.0 (the
-#         "License"); you may not use this file except in compliance
-#         with the License.  You may obtain a copy of the License at
-#
-#           http://www.apache.org/licenses/LICENSE-2.0
-#
-#         Unless required by applicable law or agreed to in writing,
-#         software distributed under the License is distributed on an
-#         "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-#         KIND, either express or implied.  See the License for the
-#         specific language governing permissions and limitations
-#         under the License.
--->
 
-# cordova-plugin-media
 
-[![Build Status](https://travis-ci.org/apache/cordova-plugin-media.svg)](https://travis-ci.org/apache/cordova-plugin-media)
+# ns-cordova-plugin-audio
+
 
 This plugin provides the ability to record and play back audio files on a device.
 
@@ -44,11 +26,9 @@ Although in the global scope, it is not available until after the `deviceready` 
 ## Supported Platforms
 
 - Android
-- BlackBerry 10
 - iOS
-- OSX
+- OSX (not yet)
 - Windows Phone 7 and 8
-- Tizen
 - Windows 8
 - Windows
 - Browser
@@ -61,9 +41,9 @@ Although in the global scope, it is not available until after the `deviceready` 
 
 [url]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/hh184838(v=vs.92).aspx
 
-## Media
+## NSmedia
 
-    var media = new Media(src, mediaSuccess, [mediaError], [mediaStatus]);
+    var media = new NSmedia(src, mediaSuccess, [mediaError], [mediaStatus]);
 
 ### Parameters
 
@@ -80,11 +60,11 @@ Although in the global scope, it is not available until after the `deviceready` 
 The following constants are reported as the only parameter to the
 `mediaStatus` callback:
 
-- `Media.MEDIA_NONE`     = 0;
-- `Media.MEDIA_STARTING` = 1;
-- `Media.MEDIA_RUNNING`  = 2;
-- `Media.MEDIA_PAUSED`   = 3;
-- `Media.MEDIA_STOPPED`  = 4;
+- `NSmedia.MEDIA_NONE`     = 0;
+- `NSmedia.MEDIA_STARTING` = 1;
+- `NSmedia.MEDIA_RUNNING`  = 2;
+- `NSmedia.MEDIA_PAUSED`   = 3;
+- `NSmedia.MEDIA_STOPPED`  = 4;
 
 ### Methods
 
@@ -491,13 +471,9 @@ Stops recording an audio file.
     }
 
 
-### Tizen Quirks
+## NSmediaError
 
-- Not supported on Tizen devices.
-
-## MediaError
-
-A `MediaError` object is returned to the `mediaError` callback
+A `NSmediaError` object is returned to the `mediaError` callback
 function when an error occurs.
 
 ### Properties
@@ -508,8 +484,8 @@ function when an error occurs.
 
 ### Constants
 
-- `MediaError.MEDIA_ERR_ABORTED`        = 1
-- `MediaError.MEDIA_ERR_NETWORK`        = 2
-- `MediaError.MEDIA_ERR_DECODE`         = 3
-- `MediaError.MEDIA_ERR_NONE_SUPPORTED` = 4
+- `NSmediaError.MEDIA_ERR_ABORTED`        = 1
+- `NSmediaError.MEDIA_ERR_NETWORK`        = 2
+- `NSmediaError.MEDIA_ERR_DECODE`         = 3
+- `NSmediaError.MEDIA_ERR_NONE_SUPPORTED` = 4
 
