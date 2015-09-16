@@ -1,5 +1,5 @@
 
-package org.nocsonic.nsmedia;
+package org.nocsonic.nocsonicmedia;
 
 import android.net.Uri;
 

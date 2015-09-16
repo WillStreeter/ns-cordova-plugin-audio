@@ -37,8 +37,8 @@ var mediaObjects = {};
  * @param statusCallback        The callback to be called when media status has changed.
  *                                  statusCallback(int statusCode) - OPTIONAL
  */
-var NSmedia = function(src, successCallback, errorCallback, statusCallback) {
-    argscheck.checkArgs('sFFF', 'NSmedia', arguments);
+var NocSonicMedia = function(src, successCallback, errorCallback, statusCallback) {
+    argscheck.checkArgs('sFFF', 'NocSonicMedia', arguments);
     this.id = utils.createUUID();
     mediaObjects[this.id] = this;
     this.src = src;
@@ -47,60 +47,60 @@ var NSmedia = function(src, successCallback, errorCallback, statusCallback) {
     this.statusCallback = statusCallback;
     this._duration = -1;
     this._position = -1;
-    exec(null, this.errorCallback, "NSmedia", "create", [this.id, this.src]);
+    exec(null, this.errorCallback, "NocSonicMedia", "create", [this.id, this.src]);
 };
 
-// NSmedia messages
-NSmedia.MEDIA_STATE = 1;
-NSmedia.MEDIA_DURATION = 2;
-NSmedia.MEDIA_POSITION = 3;
-NSmedia.MEDIA_ERROR = 9;
+// NocSonicMedia messages
+NocSonicMedia.MEDIA_STATE = 1;
+NocSonicMedia.MEDIA_DURATION = 2;
+NocSonicMedia.MEDIA_POSITION = 3;
+NocSonicMedia.MEDIA_ERROR = 9;
 
-// NSmedia states
-NSmedia.MEDIA_NONE = 0;
-NSmedia.MEDIA_STARTING = 1;
-NSmedia.MEDIA_RUNNING = 2;
-NSmedia.MEDIA_PAUSED = 3;
-NSmedia.MEDIA_STOPPED = 4;
-NSmedia.MEDIA_MSG = ["None", "Starting", "Running", "Paused", "Stopped"];
+// NocSonicMedia states
+NocSonicMedia.MEDIA_NONE = 0;
+NocSonicMedia.MEDIA_STARTING = 1;
+NocSonicMedia.MEDIA_RUNNING = 2;
+NocSonicMedia.MEDIA_PAUSED = 3;
+NocSonicMedia.MEDIA_STOPPED = 4;
+NocSonicMedia.MEDIA_MSG = ["None", "Starting", "Running", "Paused", "Stopped"];
 
 // "static" function to return existing objs.
-NSmedia.get = function(id) {
+NocSonicMedia.get = function(id) {
     return mediaObjects[id];
 };
 
 /**
  * Start or resume playing audio file.
  */
-NSmedia.prototype.play = function(options) {
-    exec(null, null, "NSmedia", "startPlayingAudio", [this.id, this.src, options]);
+NocSonicMedia.prototype.play = function(options) {
+    exec(null, null, "NocSonicMedia", "startPlayingAudio", [this.id, this.src, options]);
 };
 
 /**
  * Stop playing audio file.
  */
-NSmedia.prototype.stop = function() {
+NocSonicMedia.prototype.stop = function() {
     var me = this;
     exec(function() {
         me._position = 0;
-    }, this.errorCallback, "NSmedia", "stopPlayingAudio", [this.id]);
+    }, this.errorCallback, "NocSonicMedia", "stopPlayingAudio", [this.id]);
 };
 
 /**
  * Seek or jump to a new time in the track..
  */
-NSmedia.prototype.seekTo = function(milliseconds) {
+NocSonicMedia.prototype.seekTo = function(milliseconds) {
     var me = this;
     exec(function(p) {
         me._position = p;
-    }, this.errorCallback, "NSmedia", "seekToAudio", [this.id, milliseconds]);
+    }, this.errorCallback, "NocSonicMedia", "seekToAudio", [this.id, milliseconds]);
 };
 
 /**
  * Pause playing audio file.
  */
-NSmedia.prototype.pause = function() {
-    exec(null, this.errorCallback, "NSmedia", "pausePlayingAudio", [this.id]);
+NocSonicMedia.prototype.pause = function() {
+    exec(null, this.errorCallback, "NocSonicMedia", "pausePlayingAudio", [this.id]);
 };
 
 /**
@@ -109,47 +109,47 @@ NSmedia.prototype.pause = function() {
  *
  * @return      duration or -1 if not known.
  */
-NSmedia.prototype.getDuration = function() {
+NocSonicMedia.prototype.getDuration = function() {
     return this._duration;
 };
 
 /**
  * Get position of audio.
  */
-NSmedia.prototype.getCurrentPosition = function(success, fail) {
+NocSonicMedia.prototype.getCurrentPosition = function(success, fail) {
     var me = this;
     exec(function(p) {
         me._position = p;
         success(p);
-    }, fail, "NSmedia", "getCurrentPositionAudio", [this.id]);
+    }, fail, "NocSonicMedia", "getCurrentPositionAudio", [this.id]);
 };
 
 /**
  * Start recording audio file.
  */
-NSmedia.prototype.startRecord = function() {
-    exec(null, this.errorCallback, "NSmedia", "startRecordingAudio", [this.id, this.src]);
+NocSonicMedia.prototype.startRecord = function() {
+    exec(null, this.errorCallback, "NocSonicMedia", "startRecordingAudio", [this.id, this.src]);
 };
 
 /**
  * Stop recording audio file.
  */
-NSmedia.prototype.stopRecord = function() {
-    exec(null, this.errorCallback, "NSmedia", "stopRecordingAudio", [this.id]);
+NocSonicMedia.prototype.stopRecord = function() {
+    exec(null, this.errorCallback, "NocSonicMedia", "stopRecordingAudio", [this.id]);
 };
 
 /**
  * Release the resources.
  */
-NSmedia.prototype.release = function() {
-    exec(null, this.errorCallback, "NSmedia", "release", [this.id]);
+NocSonicMedia.prototype.release = function() {
+    exec(null, this.errorCallback, "NocSonicMedia", "release", [this.id]);
 };
 
 /**
  * Adjust the volume.
  */
-NSmedia.prototype.setVolume = function(volume) {
-    exec(null, null, "NSmedia", "setVolume", [this.id, volume]);
+NocSonicMedia.prototype.setVolume = function(volume) {
+    exec(null, null, "NocSonicMedia", "setVolume", [this.id, volume]);
 };
 
 /**
@@ -160,43 +160,43 @@ NSmedia.prototype.setVolume = function(volume) {
  * @param msgType       The 'type' of update this is
  * @param value         Use of value is determined by the msgType
  */
-NSmedia.onStatus = function(id, msgType, value) {
+NocSonicMedia.onStatus = function(id, msgType, value) {
 
     var media = mediaObjects[id];
 
     if(media) {
         switch(msgType) {
-            case NSmedia.MEDIA_STATE :
+            case NocSonicMedia.MEDIA_STATE :
                 media.statusCallback && media.statusCallback(value);
-                if(value == NSmedia.MEDIA_STOPPED) {
+                if(value == NocSonicMedia.MEDIA_STOPPED) {
                     media.successCallback && media.successCallback();
                 }
                 break;
-            case NSmedia.MEDIA_DURATION :
+            case NocSonicMedia.MEDIA_DURATION :
                 media._duration = value;
                 break;
-            case NSmedia.MEDIA_ERROR :
+            case NocSonicMedia.MEDIA_ERROR :
                 media.errorCallback && media.errorCallback(value);
                 break;
-            case NSmedia.MEDIA_POSITION :
+            case NocSonicMedia.MEDIA_POSITION :
                 media._position = Number(value);
                 break;
             default :
-                console.error && console.error("Unhandled NSmedia.onStatus :: " + msgType);
+                console.error && console.error("Unhandled NocSonicMedia.onStatus :: " + msgType);
                 break;
         }
     }
     else {
-         console.error && console.error("Received NSmedia.onStatus callback for unknown media :: " + id);
+         console.error && console.error("Received NocSonicMedia.onStatus callback for unknown media :: " + id);
     }
 
 };
 
-module.exports = NSmedia;
+module.exports = NocSonicMedia;
 
 function onMessageFromNative(msg) {
     if (msg.action == 'status') {
-        NSmedia.onStatus(msg.status.id, msg.status.msgType, msg.status.value);
+        NocSonicMedia.onStatus(msg.status.id, msg.status.msgType, msg.status.value);
     } else {
         throw new Error('Unknown media action' + msg.action);
     }
@@ -206,11 +206,11 @@ if (cordova.platformId === 'android' || cordova.platformId === 'amazon-fireos' |
 
     var channel = require('cordova/channel');
 
-    channel.createSticky('onNSmediaPluginReady');
-    channel.waitForInitialization('onNSmediaPluginReady');
+    channel.createSticky('onNocSonicMediaPluginReady');
+    channel.waitForInitialization('onNocSonicMediaPluginReady');
 
     channel.onCordovaReady.subscribe(function() {
-        exec(onMessageFromNative, undefined, 'NSmedia', 'messageChannel', []);
-        channel.initializationComplete('onNSmediaPluginReady');
+        exec(onMessageFromNative, undefined, 'NocSonicMedia', 'messageChannel', []);
+        channel.initializationComplete('onNocSonicMediaPluginReady');
     });
 }

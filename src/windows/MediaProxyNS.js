@@ -2,8 +2,8 @@
 
 /*global Windows:true */
 
-var Media = require('ns-cordova-plugin-audio.NSmedia');
-var MediaError = require('ns-cordova-plugin-audio.NSmediaError');
+var Media = require('ns-cordova-plugin-audio.NocSonicMedia');
+var MediaError = require('ns-cordova-plugin-audio.NocSonicMediaError');
 
 var recordedFile;
 
@@ -155,7 +155,7 @@ module.exports = {
         thisM.mediaCaptureMgr.initializeAsync(captureInitSettings).done(function (result) {
             thisM.mediaCaptureMgr.addEventListener("recordlimitationexceeded", lose);
             thisM.mediaCaptureMgr.addEventListener("failed", lose);
-            
+
             // Start recording
             Windows.Storage.ApplicationData.current.temporaryFolder.createFileAsync(destFileName, Windows.Storage.CreationCollisionOption.replaceExisting).done(function (newFile) {
                 recordedFile = newFile;
@@ -221,4 +221,4 @@ module.exports = {
     }
 };
 
-require("cordova/exec/proxy").add("NSmedia",module.exports);
+require("cordova/exec/proxy").add("NocSonicMedia",module.exports);
