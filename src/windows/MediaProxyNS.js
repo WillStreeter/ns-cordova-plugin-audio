@@ -2,8 +2,8 @@
 
 /*global Windows:true */
 
-var Media = require('ns-cordova-plugin-audio.NocSonicMedia');
-var MediaError = require('ns-cordova-plugin-audio.NocSonicMediaError');
+var Media = require('cordova-plugin-nocsonicmedia.NocSonicMedia');
+var MediaError = require('cordova-plugin-nocsonicmedia.NocSonicMediaError');
 
 var recordedFile;
 
