@@ -42,7 +42,7 @@ id="cordova-plugin-nocsonicmedia"
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="NocSonicMedia" >
-                <param name="android-package" value="org.nocsonic.nsmedia.AudioHandlerNS"/>
+                <param name="android-package" value="com.nocsonic.cordova.nocsonicmedia.AudioHandlerNS"/>
             </feature>
         </config-file>
 
@@ -53,9 +53,9 @@ id="cordova-plugin-nocsonicmedia"
             <uses-permission android:name="android.permission.READ_PHONE_STATE" />
         </config-file>
 
-        <source-file src="src/android/AudioHandlerNS.java" target-dir="src/org/nocsonic/cordova/nocsonicmedia" />
-        <source-file src="src/android/AudioPlayerNS.java" target-dir="src/org/nocsonic/cordova/nocsonicmedia" />
-        <source-file src="src/android/FileHelper.java" target-dir="src/org/apache/nocsonic/nocsonicmedia" />
+        <source-file src="src/android/AudioHandlerNS.java" target-dir="src/com/nocsonic/cordova/nocsonicmedia" />
+        <source-file src="src/android/AudioPlayerNS.java"  target-dir="src/com/nocsonic/cordova/nocsonicmedia" />
+        <source-file src="src/android/FileHelper.java"     target-dir="src/com/nocsonic/cordova/nocsonicmedia" />
      </platform>
 
      <!-- ios -->

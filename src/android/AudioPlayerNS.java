@@ -1,5 +1,5 @@
 
-package org.nocsonic.nocsonicmedia;
+package com.nocsonic.cordova.nocsonicmedia;
 
 import android.media.AudioManager;
 import android.media.MediaPlayer;
