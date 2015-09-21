@@ -19,30 +19,30 @@
 -->
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 xmlns:android="http://schemas.android.com/apk/res/android"
-id="ns-cordova-plugin-audio"
+id="cordova-plugin-nocsonicmedia"
     version="0.0.1">
 
-    <name>NSmedia</name>
+    <name>NocSonicMedia</name>
     <description>NocSonic Two Track Audio plugin</description>
     <license>Apache 2.0</license>
     <keywords>nocsonic,audio</keywords>
-    <repo>https://github.com/nocsonic/ns-cordova-plugin-audio.git</repo>
+    <repo>https://github.com/nocsonic/cordova-plugin-nocsonicmedia.git</repo>
 
     <dependency id="cordova-plugin-file" version=">=2.0.0" />
 
-    <js-module src="www/NSmediaError.js" name="NSmediaError">
-        <clobbers target="window.NSmediaError" />
+    <js-module src="www/NocSonicMediaError.js" name="NocSonicMediaError">
+        <clobbers target="window.NocSonicMediaError" />
     </js-module>
 
-    <js-module src="www/NSmedia.js" name="NSmedia">
-        <clobbers target="window.NSmedia" />
+    <js-module src="www/NocSonicMedia.js" name="NocSonicMedia">
+        <clobbers target="window.NocSonicMedia" />
     </js-module>
 
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="NSmedia" >
-                <param name="android-package" value="org.nocsonic.nsmedia.AudioHandlerNS"/>
+            <feature name="NocSonicMedia" >
+                <param name="android-package" value="com.nocsonic.cordova.nocsonicmedia.AudioHandlerNS"/>
             </feature>
         </config-file>
 
@@ -53,15 +53,15 @@ id="ns-cordova-plugin-audio"
             <uses-permission android:name="android.permission.READ_PHONE_STATE" />
         </config-file>
 
-        <source-file src="src/android/AudioHandlerNS.java" target-dir="src/org/nocsonic/cordova/nsmedia" />
-        <source-file src="src/android/AudioPlayerNS.java" target-dir="src/org/nocsonic/cordova/nsmedia" />
-        <source-file src="src/android/FileHelper.java" target-dir="src/org/apache/nocsonic/nsmedia" />
+        <source-file src="src/android/AudioHandlerNS.java" target-dir="src/com/nocsonic/cordova/nocsonicmedia" />
+        <source-file src="src/android/AudioPlayerNS.java"  target-dir="src/com/nocsonic/cordova/nocsonicmedia" />
+        <source-file src="src/android/FileHelper.java"     target-dir="src/com/nocsonic/cordova/nocsonicmedia" />
      </platform>
 
      <!-- ios -->
      <platform name="ios">
          <config-file target="config.xml" parent="/*">
-             <feature name="NSmedia">
+             <feature name="NocSonicMedia">
                  <param name="ios-package" value="CDVAudions" />
              </feature>
          </config-file>
@@ -72,7 +72,7 @@ id="ns-cordova-plugin-audio"
     <!-- wp7 -->
     <platform name="wp7">
         <config-file target="config.xml" parent="/*">
-            <feature name="NSmedia">
+            <feature name="NocSonicMedia">
                 <param name="wp-package" value="MediaNS"/>
             </feature>
         </config-file>
@@ -89,7 +89,7 @@ id="ns-cordova-plugin-audio"
     <!-- wp8 -->
     <platform name="wp8">
         <config-file target="config.xml" parent="/*">
-            <feature name="NSmedia">
+            <feature name="NocSonicMedia">
                 <param name="wp-package" value="MediaNS"/>
             </feature>
         </config-file>
@@ -128,8 +128,8 @@ id="ns-cordova-plugin-audio"
 
     <!-- browser -->
     <platform name="browser">
-        <js-module src="www/browser/NSmedia.js" name="BrowserMedia">
-            <clobbers target="window.NSmedia" />
+        <js-module src="www/browser/NocSonicMedia.js" name="BrowserMedia">
+            <clobbers target="window.NocSonicMedia" />
         </js-module>
     </platform>
 

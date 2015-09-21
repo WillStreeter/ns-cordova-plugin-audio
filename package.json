@@ -1,9 +1,9 @@
 {
-  "name": "ns-cordova-plugin-audio",
+  "name": "cordova-plugin-nocsonicmedia",
   "version": "1.0.1",
   "description": "Two Track Mixing, Recording and Encoding",
   "cordova": {
-    "id": "ns-cordova-plugin-audio",
+    "id": "cordova-plugin-nocsonicmedia",
     "platforms": [
       "ios",
       "android",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nocsonic/ns-cordova-plugin-audio"
+    "url": "https://github.com/nocsonic/cordova-plugin-nocsonicmedia"
   },
   "keywords": [
     "cordova",

@@ -1,5 +1,5 @@
 
-package org.nocsonic.nsmedia;
+package com.nocsonic.cordova.nocsonicmedia;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
